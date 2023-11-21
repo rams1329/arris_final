@@ -1,0 +1,124 @@
+<div class="table-responsive">
+    <% if (departments != "") { %>
+    
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col" class="search-name">Name</th>
+            <th scope="col" class="search-email">Email</th>
+            <th scope="col" class="search-gender">Gender</th>
+            <th scope="col" class="search-department">Department</th>
+            <th scope="col" class="search-status">Status</th>
+            <th scope="col" class="search-status">Discipline lead name</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < departments.length; i++) { %>
+                <tr class="<%= i % 2 === 0 ? 'even-row' : 'odd-row' %>">
+                    <td><%= i + 1 %></td>
+                    <td><%= departments[i].name %></td>
+                    <td><%= departments[i].email %></td>
+                    <td><%= departments[i].gender %></td>
+                    <td><%= departments[i].department %></td>
+                    <td><%= departments[i].status %></td>
+                    <td><%= departments[i].dlname %></td>
+                    <td>
+                        <!-- Add content for the last column if needed -->
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+      </table>
+  
+    <% } else { %>
+      <h2>No results found.</h2>
+    <% } %>
+  </div>
+  
+  
+  <style>
+    /* Add this CSS in your style tag or external stylesheet */
+  
+  /* Add this CSS in your style tag or external stylesheet */
+  
+  /* Add this CSS in your style tag or external stylesheet */
+  
+  body {
+      font-family: 'Poppins', sans-serif;
+  }
+  
+  .table {
+      width: 100%;
+      margin-bottom: 1rem;
+      color: #212529;
+      font-size: 16px; /* Adjust the font size as needed */
+  }
+  
+  .table th,
+  .table td {
+      padding: 1rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody + tbody {
+      border-top: 2px solid #dee2e6;
+  }
+  
+  .table .even-row {
+      background-color: #f8f9fa;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #f8f9fa;
+  }
+  
+  .table-hover tbody tr:hover {
+      background-color: #e2e6ea;
+  }
+  
+  .table-primary,
+  .table-primary > th,
+  .table-primary > td {
+      background-color: #b8daff;
+  }
+  
+  .table-hover .table-primary:hover {
+      background-color: #9fcdff;
+  }
+  
+  /* Innovative styling for search class names */
+  
+  .search-name {
+      color: #3498db; /* Blue color for name */
+      font-weight: bold;
+  }
+  
+  .search-email {
+      color: #27ae60; /* Green color for email */
+  }
+  
+  .search-gender {
+      text-transform: uppercase; /* Uppercase for gender */
+      font-style: italic;
+  }
+  
+  .search-department {
+      background-color: #f39c12; /* Orange background for department */
+      color: #fff; /* White text for department */
+  }
+  
+  .search-status {
+      color: #e74c3c; /* Red color for status */
+      text-decoration: underline;
+  }
+  
+  
+  
+  </style>

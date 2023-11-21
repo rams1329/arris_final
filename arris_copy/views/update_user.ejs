@@ -1,0 +1,312 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update User</h2>
+            <span class="text-light">Use the below form to Update an account</span>
+        </div>
+
+        <!-- add user form -->
+         <!-- form handling -->
+ <form method="POST" id="update_user">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="name" class="text-light">Name</label>
+            <input type="hidden" name="id" value="<%= user._id %>">
+            <input type="text" name="name" value="<%= user.name %>" placeholder="Mark Stoenis">
+        </div>
+        <div class="form-group">
+            <label for="Email" class="text-light">Email</label>
+            <input type="text" name="email" value="<%= user.email%>" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="gender" class="text-light">Gender</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="gender" value="Male" <%= user.gender == 'Male' ? 'checked' : '' %>>
+                <label for="radio-2" class="radio-label">Male</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="gender" value="Female"  <%= user.gender == 'Female' ? 'checked' : '' %> >
+                <label for="radio-3" class="radio-label">Female</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender" class="text-light">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="status" value="Active" <%= user.status == 'Active' ? 'checked' : '' %> >
+                <label for="radio-4" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="status" value="Inactive" <%= user.status == 'Inactive' ? 'checked' : '' %> >
+                <label for="radio-5" class="radio-label">Inactive</label>
+            </div>
+        </div>
+
+    <div class="fields">
+            
+        <div class="input-field">
+            <label for="dob" class="text-light">Date of Birth</label>
+            <input type="date" name="dob" value="<%= new Date(user.dob).toISOString().split('T')[0] %>">
+        </div>
+        
+
+        
+        <div class="input-field">
+            <label> Employee Mobile Number</label>
+            <input type="number" placeholder="Enter mobile number" name="empmn" value="<%= user.empmn%>">
+        </div>
+        <div class="input-field">
+            <label> Department</label>
+            <input type="text" placeholder="Enter your department" name="department" value="<%= user.department%>">
+        </div>
+
+        <div class="input-field">
+            <label>Employee No</label>
+            <input type="text" placeholder="Enter the employee number" name="empno" value="<%= user.empno%>">
+        </div>
+        <div class="input-field">
+            <label>Department</label>
+            <input type="text" placeholder="Enter your department" name="department" value="<%= user.department%>">
+        </div>
+
+        <div class="input-field">
+            <label>Permanent / Contract</label>
+            <select name="porc">
+                <option disabled selected>Select Mode</option>
+                <option value="Permanent" <%= user.porc === 'Permanent' ? 'selected' : '' %>>Permanent</option>
+                <option value="Contract" <%= user.porc === 'Contract' ? 'selected' : '' %>>Contract</option>
+                <option value="Others" <%= user.porc === 'Others' ? 'selected' : '' %>>Others</option>
+            </select>
+        </div>
+        
+
+        <div class="input-field">
+            <label>Designation</label>
+            <input type="text" placeholder="Enter your Designation" name="designation" value="<%= user.designation%>">
+        </div>
+
+
+        <div class="input-field">
+            <label>Qualification</label>
+            <input type="text" placeholder="Enter your qualification" name="qualification" value="<%= user.qualification%>">
+        </div>
+        <div class="input-field">
+            <label>Blood Group</label>
+            <select name="bg">
+                <option disabled selected>Select Blood Group</option>
+                <option value="A+" <%= user.bg === 'A+' ? 'selected' : '' %>>A+</option>
+                <option value="A-" <%= user.bg === 'A-' ? 'selected' : '' %>>A-</option>
+                <option value="B+" <%= user.bg === 'B+' ? 'selected' : '' %>>B+</option>
+                <option value="B-" <%= user.bg === 'B-' ? 'selected' : '' %>>B-</option>
+                <option value="AB+" <%= user.bg === 'AB+' ? 'selected' : '' %>>AB+</option>
+                <option value="AB-" <%= user.bg === 'AB-' ? 'selected' : '' %>>AB-</option>
+                <option value="O+" <%= user.bg === 'O+' ? 'selected' : '' %>>O+</option>
+                <option value="O-" <%= user.bg === 'O-' ? 'selected' : '' %>>O-</option>
+            </select>
+        </div>
+        
+        <div class="input-field">
+            <label>Year of graduation</label>
+            <input type="date" placeholder="Enter the year of graduation" name="yog" value="<%= new Date(user.yog).toISOString().split('T')[0] %>">
+        </div>
+        <div class="input-field">
+            <label>Date of joining</label>
+            <input type="date" placeholder="Date of joining" name="doj" value="<%= new Date(user.doj).toISOString().split('T')[0] %>">
+        </div>
+        <div class="input-field">
+            <label>Address</label>
+            <input type="text" placeholder="Enter your adress" name="address" value="<%= user.address%>">
+        </div>
+
+        <div class="input-field">
+            <label>Aadhar number</label>
+            <input type="number" placeholder="Enter your Aadhar no." name="aadharno" value="<%= user.aadharno%>">
+        </div>
+
+        <div class="input-field">
+            <label>PAN Number</label>
+            <input type="number" placeholder="Enter your PAN no." name="panno" value="<%= user.panno%>">
+        </div>
+
+        <div class="input-field">
+            <label>VAN Number</label>
+            <input type="text" placeholder="Enter your VAN no." name="vanno" value="<%= user.vanno%>">
+        </div>
+
+
+        <div class="input-field">
+            <label>PF Number</label>
+            <input type="text" placeholder="Enter Pf number" name="pfno" value="<%= user.pfno%>">
+        </div>
+
+        <div class="input-field">
+            <label>Remarks</label>
+            <input type="text" placeholder="Enter remarks" name="remarks" value="<%= user.remarks%>">
+        </div>
+
+
+       
+        <div class="input-field">
+            <label for="previousExperience">Previous experience</label>
+            <input type="text" id="previousExperience" placeholder="experience"  name="prevexp" value="<%= user.prevexp%>">
+        </div>
+
+        <div class="input-field">
+            <label for="arrisExperience">Arris experience</label>
+            <input type="text" id="arrisExperience" placeholder="experience"  name="arrisexp" value="<%= user.arrisexp%>">
+        </div>
+
+        <div class="input-field">
+            <label for="totalExperience">Total experience</label>
+            <input type="text" id="totalExperience" placeholder="total experience"  onclick="calculateTotalExperience()" name="totalexp" value="<%= user.totalexp%>">
+        </div>
+        <div class="input-field">
+            <label>Previous company name</label>
+            <input type="text" placeholder="Enter your prev company name" name="prevcompname" value="<%= user.prevcompname%>">
+        </div>
+    </div>
+
+    <div class="details address">
+        <br>
+        <span class="title">Bank details and Documents</span>
+        <br>
+        <br>
+        <div class="fields">
+            <div class="input-field">
+                <label>Account Number</label>
+                <input type="text" placeholder="Enter your A/C no." name="acno" value="<%= user.acno%>">
+            </div>
+            <div class="input-field">
+                <label>IFSC Code</label>
+                <input type="text" placeholder="Enter your A/C no." name="ifsc" value="<%= user.ifsc%>">
+            </div>
+            <div class="input-field">
+                <label>Bank Name</label>
+                <select name="bankname">
+                    <option disabled selected>Select Bank</option>
+                    <option value="State Bank of India (SBI)" <%= user.bankname === 'State Bank of India (SBI)' ? 'selected' : '' %>>State Bank of India (SBI)</option>
+                    <option value="HDFC Bank" <%= user.bankname === 'HDFC Bank' ? 'selected' : '' %>>HDFC Bank</option>
+                    <option value="ICICI Bank" <%= user.bankname === 'ICICI Bank' ? 'selected' : '' %>>ICICI Bank</option>
+                    <option value="Punjab National Bank (PNB)" <%= user.bankname === 'Punjab National Bank (PNB)' ? 'selected' : '' %>>Punjab National Bank (PNB)</option>
+                    <option value="Axis Bank" <%= user.bankname === 'Axis Bank' ? 'selected' : '' %>>Axis Bank</option>
+                    <option value="Canara Bank" <%= user.bankname === 'Canara Bank' ? 'selected' : '' %>>Canara Bank</option>
+                    <option value="Bank of Baroda (BoB)" <%= user.bankname === 'Bank of Baroda (BoB)' ? 'selected' : '' %>>Bank of Baroda (BoB)</option>
+                    <option value="Union Bank of India" <%= user.bankname === 'Union Bank of India' ? 'selected' : '' %>>Union Bank of India</option>
+                    <option value="IDBI Bank" <%= user.bankname === 'IDBI Bank' ? 'selected' : '' %>>IDBI Bank</option>
+                    <option value="Kotak Mahindra Bank" <%= user.bankname === 'Kotak Mahindra Bank' ? 'selected' : '' %>>Kotak Mahindra Bank</option>
+                    <option value="IndusInd Bank" <%= user.bankname === 'IndusInd Bank' ? 'selected' : '' %>>IndusInd Bank</option>
+                    <option value="Yes Bank" <%= user.bankname === 'Yes Bank' ? 'selected' : '' %>>Yes Bank</option>
+                    <option value="Federal Bank" <%= user.bankname === 'Federal Bank' ? 'selected' : '' %>>Federal Bank</option>
+                    <option value="Indian Bank" <%= user.bankname === 'Indian Bank' ? 'selected' : '' %>>Indian Bank</option>
+                    <option value="Bank of India (BOI)" <%= user.bankname === 'Bank of India (BOI)' ? 'selected' : '' %>>Bank of India (BOI)</option>
+                    <option value="Central Bank of India" <%= user.bankname === 'Central Bank of India' ? 'selected' : '' %>>Central Bank of India</option>
+                    <option value="Bank of Maharashtra" <%= user.bankname === 'Bank of Maharashtra' ? 'selected' : '' %>>Bank of Maharashtra</option>
+                    <option value="Karur Vysya Bank" <%= user.bankname === 'Karur Vysya Bank' ? 'selected' : '' %>>Karur Vysya Bank</option>
+                    <option value="South Indian Bank" <%= user.bankname === 'South Indian Bank' ? 'selected' : '' %>>South Indian Bank</option>
+                    <option value="Punjab and Sind Bank" <%= user.bankname === 'Punjab and Sind Bank' ? 'selected' : '' %>>Punjab and Sind Bank</option>
+                    <option value="Others" <%= user.bankname === 'Others' ? 'selected' : '' %>>Others</option>
+                </select>
+            </div>
+            
+
+            <div class="input-field">
+                <label>Employment Status</label>
+                <select name="empstatus">
+                    <option disabled selected>Select Employment Status</option>
+                    <option value="Permanent" <%= user.empstatus === 'Permanent' ? 'selected' : '' %>>Permanent</option>
+                    <option value="Contract" <%= user.empstatus === 'Contract' ? 'selected' : '' %>>Contract</option>
+                    <option value="Referral" <%= user.empstatus === 'Referral' ? 'selected' : '' %>>Referral</option>
+                    <option value="Trainee" <%= user.empstatus === 'Trainee' ? 'selected' : '' %>>Trainee</option>
+                    <option value="Relieved" <%= user.empstatus === 'Relieved' ? 'selected' : '' %>>Relieved</option>
+                    <option value="Others" <%= user.empstatus === 'Others' ? 'selected' : '' %>>Others</option>
+                </select>
+            </div>
+            
+<!-- 
+            <div class="form-group">
+                <label>PF Document</label>
+                <input type="file" placeholder="Upload your PF DOC" name="pf">
+            </div>
+
+            <div class="form-group">
+                <label>Other Document-1</label>
+                <input type="file" placeholder="Enter ward number" name="od1">
+            </div> -->
+            <div class="input-field">
+                <label>Bank Id</label>
+                <input type="number" placeholder="Enter your Id" name="bankid" value="<%= user.bankid%>">
+            </div>
+            <div class="details family">
+                <br>
+                <span class="title">Discipline Lead and Emergency Contact Details</span>
+                <br>
+                <br>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Discipline Lead  Name</label>
+                        <input type="text" placeholder="Enter your name" name="dlname" value="<%= user.dlname%>">
+                    </div>
+
+                    <div class="input-field">
+                        <label>Disicipline Lead Email</label>
+                        <input type="text" placeholder="Enter your mail" name="dlemail" value="<%= user.dlemail%>">
+                    </div>
+
+                    <div class="input-field">
+                        <label>Discipline Lead PH No.</label>
+                        <input type="number" placeholder="Enter your phone number" id="mn" name="dlphno" value="<%= user.dlphno%>">
+                    </div>
+                    <div class="input-field">
+                        <label>Emergency contact person name</label>
+                        <input type="text" placeholder="Father your name" name="ecpn" value="<%= user.ecpn%>">
+                    </div>
+
+                    <div class="input-field">
+                        <label>Emergency Contact Number</label>
+                        <input type="number" placeholder="Enter your phone number" id="mn" name="ecn" value="<%= user.ecn%>">
+                    </div>
+
+                   
+
+                    
+                    <div class="input-field">
+                        <label>Probation Letter Provided On</label>
+                        <input type="date" placeholder="Enter the date" name="pl" value="<%= new Date(user.pl).toISOString().split('T')[0] %>">
+                    </div>
+
+
+
+
+
+        
+
+
+
+
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

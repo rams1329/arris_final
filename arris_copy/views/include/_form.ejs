@@ -1,0 +1,274 @@
+ <!-- form handling -->
+ <form action="/api/users" method="POST" id="add_user" enctype="multipart/form-data">
+    <div class="new_user">
+        <br>
+                    <span class="title">Employee Details</span>
+                    <br>
+                    <br>
+        <div class="form-group">
+            <label for="name" class="text-light">Name</label>
+            <input type="hidden" name="id" value="" required>
+            <input type="text" name="name" value="" placeholder="Mark Stoenis">
+        </div>
+        <div class="form-group">
+            <label for="image" class="text-light">Upload your Image</label>
+            <input type="file" name="image" placeholder="upload your image here">
+        </div>
+        <div class="form-group">
+            <label for="Email" class="text-light">Email</label>
+            <input type="text" name="email" value="" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="gender" class="text-light">Gender</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-2" name="gender" value="Male" >
+                <label for="radio-2" class="radio-label">Male</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-3" name="gender" value="Female" >
+                <label for="radio-3" class="radio-label">Female</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender" class="text-light">Status</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="status" value="Active" >
+                <label for="radio-4" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="status" value="Inactive" >
+                <label for="radio-5" class="radio-label">Inactive</label>
+            </div>
+        </div>
+
+        <div class="fields">
+            <div class="input-field">
+                <label for="dob" class="text-light">Date of Birth</label>
+                <input type="date" name="dob" value="">
+            </div>
+    
+    
+            
+    
+            <div class="input-field">
+                <label> Employee Mobile Number</label>
+                <input type="number" placeholder="Enter mobile number" name="empmn">
+            </div>
+    
+    
+    
+            <div class="input-field">
+                <label>Employee No</label>
+                <input type="text" placeholder="Enter the employee number" name="empno">
+            </div>
+            <div class="input-field">
+                <label>Permanent / Contract</label>
+                <select name="porc">
+                    <option disabled selected>Select Mode</option>
+                    <option name="porc">Permanent</option>
+                    <option name="porc">Contract</option>
+                    <option name="porc">Others</option>
+                </select>
+            </div>
+            <div class="input-field">
+                <label>Designation</label>
+                <input type="text" placeholder="Enter your Designation" name="designation">
+            </div>
+            
+            <div class="input-field">
+                <label>Qualification</label>
+                <input type="text" placeholder="Enter your qualification" name="qualification">
+            </div>
+            <div class="input-field">
+                <label>Blood Group</label>
+                <select  name="bg">
+                    <option disabled selected>Select Blood Group</option>
+                    <option value="A+" name="bg">A+</option>
+                    <option value="A-" name="bg">A-</option>
+                    <option value="B+" name="bg">B+</option>
+                    <option value="B-" name="bg">B-</option>
+                    <option value="AB+" name="bg">AB+</option>
+                    <option value="AB-" name="bg">AB-</option>
+                    <option value="O+" name="bg">O+</option>
+                    <option value="O-" name="bg">O-</option>
+                </select>
+            </div>
+            
+            <div class="input-field">
+                <label>Year of graduation</label>
+                <input type="date" placeholder="Enter the year of graduation" name="yog">
+            </div>
+            <div class="input-field">
+                <label>Date of joining</label>
+                <input type="date" placeholder="Date of joining" name="doj">
+            </div>
+            <div class="input-field">
+                <label>Address</label>
+                <input type="text" placeholder="Enter your adress" name="address">
+            </div>
+    
+            <div class="input-field">
+                <label>Aadhar number</label>
+                <input type="number" placeholder="Enter your Aadhar no." name="aadharno">
+            </div>
+    
+            <div class="input-field">
+                <label>PAN Number</label>
+                <input type="number" placeholder="Enter your PAN no." name="panno">
+            </div>
+    
+            <div class="input-field">
+                <label>VAN Number</label>
+                <input type="text" placeholder="Enter your VAN no." name="vanno">
+            </div>
+    
+    
+            <div class="input-field">
+                <label>PF Number</label>
+                <input type="text" placeholder="Enter Pf number" name="pfno">
+            </div>
+    
+            <div class="input-field">
+                <label>Remarks</label>
+                <input type="text" placeholder="Enter remarks" name="remarks">
+            </div>
+    
+    
+           
+            <div class="input-field">
+                <label for="previousExperience">Previous experience</label>
+                <input type="text" id="previousExperience" placeholder="experience"  name="prevexp">
+            </div>
+    
+            <div class="input-field">
+                <label for="arrisExperience">Arris experience</label>
+                <input type="text" id="arrisExperience" placeholder="experience"  name="arrisexp">
+            </div>
+    
+            <div class="input-field">
+                <label for="totalExperience">Total experience</label>
+                <input type="text" id="totalExperience" placeholder="total experience"  onclick="calculateTotalExperience()" name="totalexp">
+            </div>
+            <div class="input-field">
+                <label>Previous company name</label>
+                <input type="text" placeholder="Enter your prev company name" name="prevcompname">
+            </div>
+        </div>
+        
+    </div>
+
+        <div class="details address">
+            <br>
+            <span class="title">Bank details</span>
+            <br>
+            <br>
+            <div class="fields">
+                <div class="input-field">
+                    <label>Account Number</label>
+                    <input type="text" placeholder="Enter your A/C no." name="acno">
+                </div>
+                <div class="input-field">
+                    <label>IFSC Code</label>
+                    <input type="text" placeholder="Enter your A/C no." name="ifsc">
+                </div>
+
+                <div class="input-field">
+                    <label>Bank Name</label>
+                    <select name="bankname">
+                        <option disabled selected>Select Mode</option>
+                        <option  name="bankname">State Bank of India (SBI)</option>
+                        <option  name="bankname">HDFC Bank</option>
+                        <option  name="bankname">ICICI Bank</option>
+                        <option name="bankname">Punjab National Bank (PNB)</option>
+                        <option  name="bankname">Axis Bank</option>
+                        <option  name="bankname">Canara Bank</option>
+                        <option  name="bankname">Bank of Baroda (BoB)</option>
+                        <option name="bankname">Union Bank of India</option>
+                        <option  name="bankname">IDBI Bank</option>
+                        <option  name="bankname">Kotak Mahindra Bank</option>
+                        <option name="bankname">IndusInd Bank</option>
+                        <option name="bankname">Yes Bank</option>
+                        <option name="bankname">Federal Bank</option>
+                        <option name="bankname">Indian Bank</option>
+                        <option name="bankname">Bank of India (BOI)</option>
+                        <option name="bankname">Central Bank of India</option>
+                        <option name="bankname">Bank of Maharashtra</option>
+                        <option name="bankname">Karur Vysya Bank</option>
+                        <option name="bankname">South Indian Bank</option>
+                        <option name="bankname">Punjab and Sind Bank</option>
+                        <option name="bankname">Others</option>
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <label>Employement Status</label>
+                    <select name="empstatus">
+                        <option disabled selected>Select Mode</option>
+                        <option name="empstatus">Permanent</option>
+                        <option name="empstatus">Contract</option>
+                        <option name="empstatus">Referral</option>
+                        <option name="empstatus">Trainee</option>
+                        <option name="empstatus">Relieved</option>
+                        <option name="empstatus">Others</option>
+                    </select>
+                </div>
+<!-- 
+                <div class="form-group">
+                    <label>PF Document</label>
+                    <input type="file" placeholder="Upload your PF DOC" name="pf">
+                </div>
+
+                <div class="form-group">
+                    <label>Other Document-1</label>
+                    <input type="file" placeholder="Enter ward number" name="od1">
+                </div> -->
+                <div class="input-field">
+                    <label>Bank Id</label>
+                    <input type="number" placeholder="Enter your Id" name="bankid">
+                </div>
+                <div class="details family">
+                    <br>
+                    <span class="title">Discipline Lead and Emergency Contact Details</span>
+                    <br>
+                    <br>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Discipline Lead  Name</label>
+                            <input type="text" placeholder="Enter your name" name="dlname">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Disicipline Lead Email</label>
+                            <input type="text" placeholder="Enter your mail" name="dlemail">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Discipline Lead PH No.</label>
+                            <input type="number" placeholder="Enter your phone number" id="mn" name="dlphno">
+                        </div>
+                        <div class="input-field">
+                            <label>Emergency contact person name</label>
+                            <input type="text" placeholder="Father your name" name="ecpn">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Emergency Contact Number</label>
+                            <input type="number" placeholder="Enter your phone number" id="mn" name="ecn">
+                        </div>
+
+                       
+
+                        
+                        <div class="input-field">
+                            <label>Probation Letter Provided On</label>
+                            <input type="Date" placeholder="Enter the date" name="pl">
+                        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>

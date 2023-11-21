@@ -1,0 +1,31 @@
+<% for(var i = 0; i < users.length; i++) { %>
+<tr>
+  <td><%= i + 1 %></td>
+  <td><%= users[i].name %></td>
+  <td><%= users[i].email %></td>
+  <td><%= users[i].gender %></td>
+  <td><%= users[i].status %></td>
+  <td class="img" id="img1">
+    <% if (users[i].imageUrl) { %>
+    <img
+      src="<%= users[i].imageUrl %>"
+      alt="User Image"
+      style="width: 50px; height: 50px"
+    />
+    <% } else { %> <%= users[i].status %> <% } %>
+  </td>
+
+  <td>
+    <a
+      href="/update-user?id=<%= users[i]._id%>"
+      class="btn border-shadow update"
+    >
+      <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+    </a>
+    <a class="btn border-shadow delete" data-id="<%= users[i]._id %>">
+      <span class="text-gradient"><i class="fas fa-times"></i></span>
+    </a>
+  </td>
+</tr>
+
+<% } %>
